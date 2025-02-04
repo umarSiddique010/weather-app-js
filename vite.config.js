@@ -1,5 +1,5 @@
 export default {
-  assetsInclude: ['**/*.png'],
+  base: '/Weather-app/', 
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
