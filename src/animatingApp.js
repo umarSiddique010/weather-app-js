@@ -39,7 +39,7 @@ function initAnimations() {
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.sun-rise-box',
-      start: 'top 90%',
+      start: 'top 105%',
     },
   });
 
@@ -50,7 +50,7 @@ function initAnimations() {
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.sun-set-box',
-      start: 'top 90%',
+      start: 'top 105%',
     },
   });
 
@@ -63,7 +63,7 @@ function initAnimations() {
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.pressure-box',
-      start: 'top 90%',
+      start: 'top 100%',
     },
   });
   gsap.from('.humidity-box', {
@@ -73,7 +73,7 @@ function initAnimations() {
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.humidity-box',
-      start: 'top 90%',
+      start: 'top 100%',
     },
   });
 
@@ -84,7 +84,7 @@ function initAnimations() {
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.visibility-box',
-      start: 'top 100%',
+      start: 'top 130%',
     },
   });
 
@@ -95,7 +95,7 @@ function initAnimations() {
     ease: 'back.out(1.7)',
     scrollTrigger: {
       trigger: '.wind-speed-box',
-      start: 'top 100%',
+      start: 'top 130%',
     },
   });
 }
