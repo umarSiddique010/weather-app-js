@@ -130,10 +130,11 @@ export default class RenderWeather {
     `Feels like: ${weatherInfo.main.feels_like} ℃`
   );
 
+
   // Toggle button for Celsius ↔ Fahrenheit
   const toggleBtn = UtilityMethods.createElement(
     'button',
-    tempWeather,
+    tempBox,
     'temp-toggle-btn',
     'Switch to °F'
   );
@@ -158,6 +159,7 @@ export default class RenderWeather {
 
     toggleBtn.textContent = isCelsius ? 'Switch to °F' : 'Switch to ℃';
   });
+  
 
   // A div box that contains weather description and an image
   const weatherDescBox = UtilityMethods.createElement(
