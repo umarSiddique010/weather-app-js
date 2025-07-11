@@ -72,9 +72,7 @@ body {
   z-index: 200;
 }
 
-
 /* Loading message  */
-
 
 .loading-message {
   font-size: xx-large;
@@ -95,7 +93,7 @@ body {
   gap: 4%;
   position: fixed;
   top: 2%;
-  right: 35%;
+  right: 1%;
   background-color: var(--color-white);
   border-radius: 3px;
   border: 1.2px dotted var(--color-sunOrange);
@@ -117,7 +115,7 @@ body {
   height: 20px;
   background: var(--color-midPink);
   align-self: end;
-  animation: progress 4s forwards linear 0.5s;
+  animation: progress 3s forwards linear 0.5s;
 }
 
 /* styling Header e.i., search form */
@@ -269,6 +267,25 @@ body {
   padding: 10px;
   margin: 7% 0 9% 0;
 }
+.temp-toggle-btn {
+  margin-top: -4rem;
+  margin-bottom: 5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-white);
+  background-color: var(--color-limeGreen);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.temp-toggle-btn:hover {
+  background-color: var(--color-sunOrange);
+  transform: scale(1.05);
+}
+
 
 .temp-box {
   width: 100%;
@@ -417,17 +434,13 @@ body {
   color: var(--color-limeGreen);
 }
 
-
 /* adding responsiveness  */
 
 @media (max-width: 858px) {
-
-
-  .msg-box{
+  .msg-box {
     width: 60%;
     padding: 0 5%;
   }
-
 
   .weather-app {
     width: 95%;
@@ -461,6 +474,11 @@ body {
 
   .temp-weather-section {
     width: 100%;
+  }
+
+  .temp-toggle-btn {
+  margin-top: -2rem;
+  margin-bottom: 2.5rem;
   }
 
   .temp-box {
@@ -531,7 +549,6 @@ body {
     height: 170px;
     width: 120px;
     justify-self: center;
-
   }
 
   .pressure-img,

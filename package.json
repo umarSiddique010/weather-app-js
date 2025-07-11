@@ -1,21 +1,54 @@
 {
   "name": "weather-app",
-  "homepage": "https://umarSiddique010.github.io/Weather-app",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A real-time weather Single Page Application (SPA) built with modular Vanilla JavaScript. Features include dynamic weather rendering via OpenWeatherMap API, responsive UI, GSAP animations, OOP design, and complete test coverage using Vitest + jsdom.",
+  "main": "main.js",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "test": "vitest run",
+    "deploy": "vite build && gh-pages -d dist"
   },
-  "devDependencies": {
-    "gh-pages": "^6.3.0",
-    "vite": "^6.0.5"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umarSiddique010/weather-app-js.git"
   },
+  "keywords": [
+    "weather-app",
+    "vanilla-js",
+    "javascript",
+    "weather-dashboard",
+    "vite",
+    "vite-app",
+    "vitest",
+    "jsdom",
+    "oop",
+    "object-oriented-programming",
+    "frontend-project",
+    "real-time-weather",
+    "SPA",
+    "gsap-animation",
+    "responsive-ui",
+    "modular-js",
+    "dotenv",
+    "openweathermap"
+  ],
+  "author": "Md Umar Siddique",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/umarSiddique010/weather-app-js/issues"
+  },
+  "homepage": "https://umarSiddique010.github.io/Weather-app",
   "dependencies": {
     "dotenv": "^16.4.7",
     "gsap": "^3.12.7"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "jsdom": "^26.1.0",
+    "vite": "^6.0.5",
+    "vitest": "^3.2.4"
   }
 }

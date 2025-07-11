@@ -52,11 +52,20 @@ export default class UtilityMethods {
     this.createElement('div', msgBox, 'progress-bar', null);
 
     setTimeout(() => {
+      gsap.to(msgBox, {
+        x: 100,
+        opacity: 0,
+        duration: 1.15,
+        ease: 'back.inOut',
+      });
+    }, 1000 * 3.5);
+
+    setTimeout(() => {
       msgBox.remove();
-    }, 1000 * 4.5);
+    }, 1000 * 5);
 
     gsap.from(msgBox, {
-      y: -100,
+      x: 100,
       opacity: 0,
       duration: 1.15,
       ease: 'back.inOut',

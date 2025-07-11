@@ -1,5 +1,5 @@
 export default {
-  base: '/Weather-app/', 
+  base: '/weather-app-js/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

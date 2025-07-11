@@ -97,76 +97,102 @@ export default class RenderWeather {
     );
   }
 
-  renderTempWeather(weatherInfo) {
-    // section tag that contain temperatures and weather information
+ renderTempWeather(weatherInfo) {
+  // section tag that contains temperatures and weather information
+  const tempWeather = UtilityMethods.createElement(
+    'section',
+    this.weatherApp,
+    'temp-weather-section',
+    null
+  );
 
-    const tempWeather = UtilityMethods.createElement(
-      'section',
-      this.weatherApp,
-      'temp-weather-section',
-      null
-    );
+  // A div box that contains temperature and feels-like temperature
+  const tempBox = UtilityMethods.createElement(
+    'div',
+    tempWeather,
+    'temp-box',
+    null
+  );
 
-    // A div box that contains the text temperature ,temperature and  feels like temperature
+  UtilityMethods.createElement('h2', tempBox, 'temp-heading', 'Temperature');
 
-    const tempBox = UtilityMethods.createElement(
-      'div',
-      tempWeather,
-      'temp-box',
-      null
-    );
+  const tempText = UtilityMethods.createElement(
+    'h3',
+    tempBox,
+    'temperature',
+    `${weatherInfo.main.temp} ℃`
+  );
 
-    UtilityMethods.createElement('h2', tempBox, 'temp-heading', 'Temperature');
+  const feelsLikeText = UtilityMethods.createElement(
+    'h4',
+    tempBox,
+    'feels-like-temp',
+    `Feels like: ${weatherInfo.main.feels_like} ℃`
+  );
 
-    UtilityMethods.createElement(
-      'h3',
-      tempBox,
-      'temperature',
-      `${weatherInfo['main']['temp']} ℃`
-    );
+  // Toggle button for Celsius ↔ Fahrenheit
+  const toggleBtn = UtilityMethods.createElement(
+    'button',
+    tempWeather,
+    'temp-toggle-btn',
+    'Switch to °F'
+  );
 
-    UtilityMethods.createElement(
-      'h4',
-      tempBox,
-      'feels-like-temp',
-      `Feels like: ${weatherInfo['main']['feels_like']} ℃`
-    );
+  let isCelsius = true;
 
-    // A div box that contains temperature description and a image related to it
+  toggleBtn.addEventListener('click', () => {
+    isCelsius = !isCelsius;
 
-    const weatherDescBox = UtilityMethods.createElement(
-      'div',
-      tempWeather,
-      'weather-description-box',
-      null
-    );
+    const tempC = weatherInfo.main.temp;
+    const feelsC = weatherInfo.main.feels_like;
+    const tempF = (tempC * 9) / 5 + 32;
+    const feelsF = (feelsC * 9) / 5 + 32;
 
-    const mainWeather = weatherInfo['weather'][0]['main'];
-    const weatherDesc = weatherInfo['weather'][0]['description'];
+    tempText.textContent = isCelsius
+      ? `${tempC} ℃`
+      : `${tempF.toFixed(1)} ℉`;
 
-    UtilityMethods.createElement(
-      'h2',
-      weatherDescBox,
-      'weather-description',
-      weatherDesc.charAt(0).toUpperCase() + weatherDesc.slice(1)
-    );
+    feelsLikeText.textContent = isCelsius
+      ? `Feels like: ${feelsC} ℃`
+      : `Feels like: ${feelsF.toFixed(1)} ℉`;
 
-    const weatherDescImg = UtilityMethods.createElement(
-      'img',
-      weatherDescBox,
-      'weather-description-img',
-      null
-    );
+    toggleBtn.textContent = isCelsius ? 'Switch to °F' : 'Switch to ℃';
+  });
 
-    if (weatherDescriptions[mainWeather]) {
-      weatherDescImg.src = weatherDescriptions[mainWeather].src;
-      weatherDescImg.alt = weatherDescriptions[mainWeather].alt;
-    } else {
-      // Default fallback image
-      weatherDescImg.src = WeatherImg;
-      weatherDescImg.alt = 'Weather condition';
-    }
+  // A div box that contains weather description and an image
+  const weatherDescBox = UtilityMethods.createElement(
+    'div',
+    tempWeather,
+    'weather-description-box',
+    null
+  );
+
+  const mainWeather = weatherInfo.weather[0].main;
+  const weatherDesc = weatherInfo.weather[0].description;
+
+  UtilityMethods.createElement(
+    'h2',
+    weatherDescBox,
+    'weather-description',
+    weatherDesc.charAt(0).toUpperCase() + weatherDesc.slice(1)
+  );
+
+  const weatherDescImg = UtilityMethods.createElement(
+    'img',
+    weatherDescBox,
+    'weather-description-img',
+    null
+  );
+
+  if (weatherDescriptions[mainWeather]) {
+    weatherDescImg.src = weatherDescriptions[mainWeather].src;
+    weatherDescImg.alt = weatherDescriptions[mainWeather].alt;
+  } else {
+    weatherDescImg.src = WeatherImg;
+    weatherDescImg.alt = 'Weather condition';
   }
+}
+
 
   renderSunRiseSet(weatherInfo) {
     // section that contains sun rise and sun set information
